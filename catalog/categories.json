@@ -1,0 +1,34 @@
+{
+  "status": "proposal",
+  "note": "The one place mood names are edited. Each name is the shortest faithful form of the collection's own label (kept in catalog.json as 'label'). 'order' is the order moods are stepped through; it wraps around. Names are at most 24 characters.",
+  "order": [
+    "chillhop",
+    "jazzhop",
+    "ambient-lofi",
+    "soul-rnb",
+    "asian-lofi",
+    "funk-soul",
+    "seasonal-weather",
+    "late-night",
+    "activities",
+    "hybrid",
+    "lo-fi",
+    "neo-classical",
+    "psychedelic-jazz"
+  ],
+  "names": {
+    "chillhop": "Chillhop",
+    "jazzhop": "Jazz Lounge",
+    "ambient-lofi": "Ambient Drift",
+    "soul-rnb": "Soul",
+    "asian-lofi": "Zen",
+    "funk-soul": "Funk",
+    "seasonal-weather": "Weather",
+    "late-night": "Late Night",
+    "activities": "Focus",
+    "hybrid": "Hybrid",
+    "lo-fi": "Lo-Fi",
+    "neo-classical": "Neo-Classical",
+    "psychedelic-jazz": "Psychedelic Jazz"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "note": "The looks offered in the popup. To add one, make plugin/surfaces/<id>/ with Bar.qml and Popup.qml and add a line here. See docs/surfaces.md. plain is the fallback and isn't listed; it can still be picked by id.",
+  "surfaces": [
+    { "id": "tine", "name": "Tine" }
+  ]
+}

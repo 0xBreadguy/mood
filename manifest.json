@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "0xbreadguy.mood",
+  "name": "mood",
+  "version": "0.1.0",
+  "author": "0xBreadguy",
+  "description": "Music beneath your work. One bar item that shows the mood and whether it's playing, and is also the control. It streams openly licensed tracks one at a time, on demand, and starts nothing by itself.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "plugin/Service.qml",
+    "barWidget": "plugin/BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "mood",
+    "description": "Click plays or pauses. Scroll down skips, scroll up goes back, scroll sideways (or hold right-click and scroll) changes the mood. Right-click opens the moods.",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "surface": "tine",
+      "highlight": "theme",
+      "animation": "",
+      "moodScroll": "sideways",
+      "mediaKeys": true,
+      "audio": "auto"
+    },
+    "schema": [
+      {
+        "key": "highlight",
+        "type": "string",
+        "label": "Highlight color",
+        "defaultValue": "theme",
+        "description": "\"theme\" follows the Omarchy theme's accent. Or a color such as #7aa2f7."
+      },
+      {
+        "key": "animation",
+        "type": "string",
+        "label": "Animation",
+        "defaultValue": "",
+        "description": "One of the variants the chosen surface offers. Empty means the surface's first."
+      },
+      {
+        "key": "moodScroll",
+        "type": "enum",
+        "label": "Scroll that changes the mood",
+        "options": [
+          "sideways",
+          "vertical"
+        ],
+        "defaultValue": "sideways",
+        "description": "sideways: scroll sideways (or hold right-click and scroll) changes the mood, up and down skip and go back. vertical: the other way round."
+      },
+      {
+        "key": "surface",
+        "type": "string",
+        "label": "Surface",
+        "defaultValue": "tine",
+        "description": "Which look draws the bar item and the popup. See plugin/surfaces/index.json."
+      },
+      {
+        "key": "mediaKeys",
+        "type": "boolean",
+        "label": "Answer the media keys",
+        "defaultValue": true,
+        "description": "Appear to the desktop as a media player titled with the mood, so play/pause, next and previous keys work. Applies the next time the player starts."
+      },
+      {
+        "key": "audio",
+        "type": "enum",
+        "label": "Sound output",
+        "options": [
+          "auto",
+          "null"
+        ],
+        "defaultValue": "auto",
+        "description": "For working on the plugin: \"null\" plays in real time into nothing. Applies the next time the player starts."
+      }
+    ]
+  }
+}
