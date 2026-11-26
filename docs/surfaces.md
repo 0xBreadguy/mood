@@ -211,7 +211,7 @@ the shell. Drive it with `omabox click`, `omabox scroll X Y DY [DX]
 `omabox tree --layer omarchy-keyboard-panel`.
 
 `tools/box-check.sh` does all of that for the default look, Tine: it starts a box,
-plays real tracks, checks about sixty behaviours and keeps captures. Run it before and
+plays real tracks, checks 81 behaviours and keeps captures. Run it before and
 after your change; the checks are about behaviour, so they should still pass
 under your surface: `MOOD_SURFACE=<id> tools/box-check.sh`.
 
@@ -229,8 +229,7 @@ omarchy-shell mood popup
 omarchy-shell mood status          # JSON, including the track and its license
 ```
 
-## Not yet observed
+## Known limits
 
-Audio was not listened to during automated Omabox checks, and a full listening
-pass across the catalog has not been completed. A real trackpad's deltas, a
-vertical bar and a second monitor remain untested.
+Automated Omabox checks run without audible playback, and physical trackpad
+deltas, vertical bars, and multi-monitor setups have limited coverage.

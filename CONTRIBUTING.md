@@ -1,14 +1,12 @@
 # Contributing
 
-Start with [README.md](README.md) and the [product brief](docs/product.md).
-Keep decided behavior, open proposals, and implemented defaults distinct. The
-main bar surface shows only mood and playback state—no track titles, album
-art, or queue clutter.
+Start with [README.md](README.md). The main bar surface shows only the current
+mood and playback state — no track titles, album art, or queue clutter — and
+the visual is also the control.
 
-Keep changes focused and explain what they let someone do. Report actual test
-coverage and unresolved gaps honestly (for example, silent Omabox runs do not
-substitute for listening to audio or checking physical trackpads and
-monitors).
+Keep changes focused and report actual test coverage and limits honestly
+(silent Omabox runs do not substitute for listening to audio or checking
+physical trackpads and monitors).
 
 ## Surfaces (looks)
 
@@ -29,8 +27,8 @@ Read [docs/surfaces.md](docs/surfaces.md) first for the full contract.
   `tools/build_catalog.py` and validate it with
   `tools/build_catalog.py --check`.
 - Any new music source needs its source page, creator, verified license (see
-  [docs/music-sources.md](docs/music-sources.md)), and a listening pass. Do
-  not equate an open code license with rights to its audio.
+  [docs/playback.md](docs/playback.md#music-sources-and-licenses)), and a
+  listening pass. Do not equate an open code license with rights to its audio.
 
 ## Development and testing
 

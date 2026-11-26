@@ -13,7 +13,7 @@
 ![Platform: Omarchy](https://img.shields.io/badge/platform-Omarchy-5c6b73)
 ![Built with: QML & Python](https://img.shields.io/badge/built%20with-QML%20%26%20Python-4b6f92)
 [![Catalog: 13 moods · 451 CC0 tracks](https://img.shields.io/badge/catalog-13%20moods%20%C2%B7%20451%20CC0%20tracks-2ea44f)](catalog/categories.json)
-[![Stage: experimental](https://img.shields.io/badge/stage-experimental-777777)](docs/product.md)
+![Stage: experimental](https://img.shields.io/badge/stage-experimental-777777)
 
 A quiet music plugin for [Omarchy](https://omarchy.org). Pick a mood, press
 play, and get back to what you're doing. One small comb in your bar shows the
@@ -73,23 +73,18 @@ Cloning or pulling this repo installs nothing by itself.
 | Right-click | Open the mood popup and settings |
 | Media keys | Play/pause, skip, and back |
 
-Click and right-click are settled; the scroll and media-key bindings are
-defaults you can swap in Settings. You can also drive the plugin from a script
-or keybind (`omarchy-shell mood toggle | skip | back | step 1 | set late-night | popup | status`).
+Swap vertical and sideways scroll in Settings, or drive the plugin from a
+script or keybind (`omarchy-shell mood toggle | skip | back | step 1 | set late-night | popup | status`).
 
 ## Go deeper
 
-- [Product brief](docs/product.md) — product decisions, open proposals, and
-  what's still evolving.
-- [Playback](docs/playback.md) — how streaming, audio analysis, and memory/CPU
-  costs work.
-- [Music sources](docs/music-sources.md) — [Open Lo-Fi](https://github.com/btahir/open-lofi),
-  [Alec Penn Radio](https://archive.org/search?query=creator%3A%22Alec+Penn+Radio%22),
-  and CC0 provenance.
+- [Playback & sources](docs/playback.md) — on-demand CC0 streaming, audio
+  analysis, and resource costs.
 - [Surfaces](docs/surfaces.md) — how the bar visual works and how to build a
   look of your own.
-- [Contributing](CONTRIBUTING.md) — local dev symlink and tests (`node --test
-  test/`, `python3 -m unittest discover -s test`, `tools/box-check.sh`).
+- [Contributing](CONTRIBUTING.md) — local dev symlink, catalog updates, and
+  tests (`node --test test/`, `python3 -m unittest discover -s test`,
+  `tools/box-check.sh`).
 
 Omarchy only. [MIT](LICENSE) for the plugin code; streamed tracks keep their
 upstream CC0 licenses, and no music files are bundled here. The name is the

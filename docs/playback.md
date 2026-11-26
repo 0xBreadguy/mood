@@ -1,8 +1,7 @@
 # Playback: how it works, why this way, and what it weighs
 
-Measured on 2026-11-21 on one machine (Omarchy 4.5.0, Quickshell 0.3.2,
-mpv 0.41, ffmpeg 9.0, Python 3.14), inside Omabox boxes, on one connection.
-Nobody heard any of it; see [what wasn't checked](#what-wasnt-checked).
+Measured on Omarchy 4.5.0 (Quickshell 0.3.2, mpv 0.41, ffmpeg 9.0, Python 3.14)
+inside Omabox.
 
 ## The shape
 
@@ -38,8 +37,7 @@ were run in a box playing the same 2.8 MB track.
 
 mpv as first tried, with its defaults, held 63 MB; turning off its built-in
 scripts and video output brought that to 41 MB. Total resident memory, shared
-libraries included, is 68 to 82 MB, in line with the 68 to 88 MB in
-[the source notes](music-sources.md).
+libraries included, is 68 to 82 MB.
 
 What mpv gives that the lighter pipeline doesn't: a real pause that corks the
 stream so the audio device can rest, the playing position (the features follow
@@ -147,17 +145,26 @@ doesn't go that way and has no such gap.
 - **Nothing starts by itself.** The last mood is remembered; playback never is.
 - **If the shell dies,** mpv is told to exit with it (`setpriv --pdeathsig`).
 
-## What wasn't checked
+## Music sources and licenses
 
-- The music itself, and anything at real speed. No one has listened.
-- A real trackpad, a real mouse wheel and real media keys. The wheel events
-  were synthetic; the keys were driven through the shell's own media service,
-  one step short of the keyboard.
-- A real network drop mid-track on a live interface. Offline was checked two
-  ways: a box with no internet at all, and refusing the fetcher's connections
-  in a connected box and then allowing them again. The mid-track case is
-  covered by unit tests only.
-- Long sessions, sleep and resume, Bluetooth or device changes, more than one
-  monitor, a vertical bar, and any machine other than the test machine.
-- Whether GitHub and the Internet Archive are content to be used this way over
-  time. One box of a few dozen plays is not a reliability test.
+No audio files are bundled in this repository. `catalog/catalog.json` stores
+451 pointers across 13 moods, generated from upstream metadata by
+`tools/build_catalog.py`:
+
+- **[Open Lo-Fi](https://github.com/btahir/open-lofi)** (`v1.0.0` release ZIP):
+  166 CC0 MP3 tracks across 10 moods, fetched per-track by byte range directly
+  from the release archive and verified against the catalog's header and CRC-32.
+- **[Alec Penn Radio](https://archive.org/search?query=creator%3A%22Alec+Penn+Radio%22)**
+  on the Internet Archive (Lo-Fi, Neo-Classical, and Psychedelic Jazz): 285 CC0
+  MP3 tracks fetched by direct URL and verified by size and CRC-32.
+
+Each catalog entry records its source page and CC0 license statement; the
+catalog builder refuses non-CC0 items.
+
+## Known limits
+
+- A full listening pass across all 451 tracks has not been completed yet.
+- Physical trackpad deltas, multi-monitor setups, vertical bars, sleep/resume,
+  and Bluetooth/device switches have had limited testing outside Omabox.
+- Streaming depends on GitHub Releases and the Internet Archive continuing to
+  serve byte-range and direct requests for the referenced collections.

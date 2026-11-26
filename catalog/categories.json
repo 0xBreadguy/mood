@@ -1,5 +1,4 @@
 {
-  "status": "proposal",
   "note": "The one place mood names are edited. Each name is the shortest faithful form of the collection's own label (kept in catalog.json as 'label'). 'order' is the order moods are stepped through; it wraps around. Names are at most 24 characters.",
   "order": [
     "chillhop",

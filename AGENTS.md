@@ -1,7 +1,7 @@
 # Working on mood
 
-- Read `README.md` and `docs/product.md` first. Keep decisions, proposals and
-  implemented behavior distinct. Preserve the mood/playback-only main surface.
+- Read `README.md` first. Preserve the mood/playback-only main bar surface (no
+  track titles, album art, or queue on the bar; the visual is the control).
 - The project is named `mood`, lowercase. Write "the plugin" wherever "mood"
   could be read as a selected mood.
 - The plugin is `manifest.json` plus `plugin/` and `catalog/`. A look is a
@@ -12,9 +12,8 @@
   `tools/build_catalog.py --check` and `tools/box-check.sh` (Omabox, silent)
   before calling plugin work done. Regenerate `catalog/catalog.json` with
   `tools/build_catalog.py`; don't edit it by hand.
-- Use `docs/product.md` and general UI principles for interface design. Do not
-  use existing music players as design references. Backend documentation is
-  appropriate technical input.
+- Develop the interface from general UI principles rather than existing music
+  players. Backend documentation is appropriate technical input.
 - Follow Omarchy plugin conventions for native plugin and system work. Never
   modify packaged Omarchy files or install, enable or restart on a live
   desktop unless the task calls for it.
