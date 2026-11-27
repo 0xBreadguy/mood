@@ -34,7 +34,7 @@ until you ask.
 Right-click the bar item for all 13 moods, manual controls, and settings —
 including picking a custom highlight color straight off your screen:
 
-![The mood popup: first-open bar controls, manual controls, and custom highlight settings](docs/popup.png)
+![The mood popup: first-open bar controls, manual controls, and custom highlight settings](preview.png)
 
 Three motion styles follow the plugin's own audio (never system sound):
 **Resonance**, **Impulse**, or **Steady** (`0%` shell CPU):
@@ -44,7 +44,8 @@ Three motion styles follow the plugin's own audio (never system sound):
 ## Install
 
 Uses `mpv`, `python`, `ffmpeg`, and `hyprpicker` — all already in a default
-Omarchy install.
+Omarchy install. Media keys also need `mpv-mpris`, which Omarchy ships too;
+without it everything else still works.
 
 ```sh
 omarchy plugin add https://github.com/0xBreadguy/mood --enable
@@ -62,6 +63,25 @@ rm -r ~/.local/state/mood                # clears saved last mood and guide stat
 ```
 
 Cloning or pulling this repo installs nothing by itself.
+
+### What it touches
+
+The plugin runs inside the Omarchy shell like any other plugin — unsandboxed,
+as you — so here's everything it does outside its own folder:
+
+- **Network:** only when you press play, and only to fetch one track at a time
+  from `archive.org` and a GitHub release download (Open Lo-Fi). No accounts,
+  no analytics.
+- **Processes:** `mpv` plays, a small Python fetcher streams the track into it,
+  `ffmpeg` analyzes each track for a second or two, and `hyprpicker` runs only
+  when you pick a highlight color off the screen. Removing the plugin shuts
+  them all down.
+- **Files:** writes one file, `~/.local/state/mood/state.json` (last mood and
+  first-open guide state), plus mpv's control socket and per-track pipes
+  under `$XDG_RUNTIME_DIR/mood`. Track audio is never written to disk.
+- **Your config:** none. mpv runs with `--no-config`, and the plugin's own
+  settings live in its bar-widget entry like any other widget's.
+- **No sudo, no services, no installers.**
 
 ## Controls
 
